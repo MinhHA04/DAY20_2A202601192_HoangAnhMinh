@@ -35,6 +35,15 @@ class Settings(BaseSettings):
 
     max_iterations: int = Field(default=6, ge=1, le=20, validation_alias="MAX_ITERATIONS")
     timeout_seconds: int = Field(default=60, ge=5, le=600, validation_alias="TIMEOUT_SECONDS")
+    max_retries: int = Field(default=2, ge=0, le=5, validation_alias="MAX_RETRIES")
+    max_output_tokens: int = Field(
+        default=1200, ge=128, le=8000, validation_alias="MAX_OUTPUT_TOKENS"
+    )
+    offline_mode: bool = Field(default=False, validation_alias="OFFLINE_MODE")
+    corpus_dir: str = Field(
+        default="ai_agent_offline_research_corpus_v2/topics",
+        validation_alias="CORPUS_DIR",
+    )
 
 
 @lru_cache(maxsize=1)

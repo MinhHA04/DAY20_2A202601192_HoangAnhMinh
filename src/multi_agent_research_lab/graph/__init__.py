@@ -1,1 +1,1 @@
-"""Workflow graph skeleton."""
+"""Single-agent baseline and multi-agent workflow graph."""

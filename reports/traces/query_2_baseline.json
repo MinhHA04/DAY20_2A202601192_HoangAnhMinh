@@ -1,0 +1,114 @@
+{
+  "request": {
+    "query": "Compare single-agent and multi-agent workflows for customer support",
+    "max_sources": 5,
+    "audience": "technical learners"
+  },
+  "iteration": 0,
+  "route_history": [
+    "single_agent"
+  ],
+  "sources": [
+    {
+      "source_id": "owasp_llm",
+      "title": "OWASP Top 10 for LLMs and Gen AI Apps (2025)",
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "snippet": "OWASP’s 2025 Top 10 for LLM and generative-AI applications includes risks such as prompt injection, sensitive-information disclosure, supply-chain weaknesses, data/model poisoning, improper output handling, excessive agency, system prompt leakage, vector/embedding weaknesses, misinformation, and unbounded consumption. Agent systems often intensify these risks because model outputs can cross trust boundaries and cause actions. A top-ten list is a prioritization aid rather than a complete threat model. Concrete controls depend on the application, privileges, data, tools, and deployment architecture.",
+      "metadata": {
+        "topic": "Enterprise Multi-Agent Workflow Automation",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "owasp_llm",
+        "year": 2025,
+        "corpus_file": "20_enterprise_multi_agent_workflow_automation.json"
+      }
+    },
+    {
+      "source_id": "metagpt",
+      "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+      "url": "https://arxiv.org/abs/2308.00352",
+      "snippet": "MetaGPT framed multi-agent collaboration around standardized operating procedures and specialized roles, particularly for software development. It also explicitly discussed cascading hallucinations as a risk of naively chaining model outputs. The relevant design lesson is that structured artifacts and role-specific checks can be preferable to unconstrained conversational chains. Reported benefits on software-oriented tasks do not establish superiority for all domains, and SOPs can become rigid or expensive if task uncertainty is high.",
+      "metadata": {
+        "topic": "Single-Agent vs Multi-Agent Architectures for Complex Research Tasks",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "metagpt",
+        "year": 2023,
+        "corpus_file": "01_single_agent_vs_multi_agent_architectures_for_complex_research_tasks.json"
+      }
+    },
+    {
+      "source_id": "autogen",
+      "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+      "url": "https://arxiv.org/abs/2308.08155",
+      "snippet": "AutoGen described a framework for constructing LLM applications as conversations among customizable agents. Agents can combine language models, human input, tools, and code, and developers can define different interaction patterns. Its main relevance to multi-agent research is architectural: collaboration can be programmed as roles and message exchanges rather than as one monolithic prompt. A framework demonstration is not proof that multiple agents always outperform one agent. Performance depends on model quality, task structure, interaction policy, and how redundant conversation is controlled.",
+      "metadata": {
+        "topic": "Single-Agent vs Multi-Agent Architectures for Complex Research Tasks",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "autogen",
+        "year": 2023,
+        "corpus_file": "01_single_agent_vs_multi_agent_architectures_for_complex_research_tasks.json"
+      }
+    },
+    {
+      "source_id": "gaia",
+      "title": "GAIA: a benchmark for General AI Assistants",
+      "url": "https://arxiv.org/abs/2311.12983",
+      "snippet": "GAIA evaluates general assistants on real-world questions requiring combinations of reasoning, browsing, multimodal interpretation, and tool use. Its design emphasizes questions that are easy enough for humans but difficult for automated assistants, highlighting robustness and tool coordination rather than narrow expert knowledge alone. Performance depends strongly on the exact assistant/tool configuration and model generation. A benchmark score should not be generalized to unrelated production workflows without additional evaluation.",
+      "metadata": {
+        "topic": "Single-Agent vs Multi-Agent Architectures for Complex Research Tasks",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "gaia",
+        "year": 2023,
+        "corpus_file": "01_single_agent_vs_multi_agent_architectures_for_complex_research_tasks.json"
+      }
+    },
+    {
+      "source_id": "T20-SYN-A",
+      "title": "Controlled Lab Study on Enterprise Multi-Agent Workflow Automation",
+      "url": null,
+      "snippet": "Purpose and context. This is a synthetic benchmark document created for Topic 20: Enterprise Multi-Agent Workflow Automation. It is not a real publication and should never be cited as one. Its purpose is to give the research system a self-contained piece of evidence with enough methodological detail to evaluate rather than merely repeat.\n\nStudy design. 120 benchmark tasks, three random seeds, matched model family and tool access. The synthetic study defines success at the task level and also records process indicators such as evidence coverage, unsupported claims, tool calls, token consumption, elapsed time, retries, and handoff defects. Runs are grouped by task complexity so that gains on difficult cases are not averaged together with routine cases.\n\nMain finding. Reports using a structured implementation of the topic's recommended pattern improved evidence coverage by 11–18%, but median token cost increased by 22–41%. The effect is intentionally presented as conditional. The data suggest that structured agentic mechanisms can help when they produce additional independent evidence or catch defects, but the same mechanisms can add substantial coordination and inference overhead. The study therefore does not support a blanket claim that more agents or more autonomy is better.\n\nSecondary observations. Benefits were concentrated in tasks with multiple evidence types, ambiguous subquestions, or explicit verification steps. On short tasks with one clear information path, the simpler baseline often completed faster and with similar factual quality. Coordination failures included duplicated retrieval, inconsistent terminology, stale summaries, and verifier agents that accepted upstream claims without inspecting the original evidence.\n\nInterpretation guidance. Use this source as benchmark evidence, not external ground truth. It can support statements about the synthetic experiment's observations and can motivate hypotheses for real systems. It should not be generalized to all models, organizations, or environments. The most defensible synthesis compares its findings with the public-reference summaries and explains which mechanisms could plausibly produce the observed differences.\n\nLimitations. Synthetic tasks; may not transfer to live web environments or organization-specific workflows. Additional limitations include synthetic task construction, possible prompt-specific effects, and the absence of a guarantee that simulated operational failures match live deployments.",
+      "metadata": {
+        "topic": "Enterprise Multi-Agent Workflow Automation",
+        "document_class": "synthetic_experiment",
+        "is_synthetic": true,
+        "citation_label": "T20-SYN-A",
+        "year": null,
+        "corpus_file": "20_enterprise_multi_agent_workflow_automation.json"
+      }
+    }
+  ],
+  "research_notes": null,
+  "analysis_notes": null,
+  "final_answer": "When comparing single-agent and multi-agent workflows for customer support, several factors must be considered, including efficiency, complexity, and risk management.\n\n### Single-Agent Workflows\nSingle-agent systems typically involve a single AI or agent handling all interactions and queries. This approach can simplify the customer support process:\n\n1. **Simplicity**: The interaction is straightforward—customers communicate with one agent, reducing the potential for miscommunication and confusion.\n2. **Faster Resolution for Simple Queries**: Single agents can efficiently handle straightforward inquiries and provide quick resolutions without the need for handoffs or coordination [T20-SYN-A].\n3. **Lower Overhead**: Fewer agents mean less coordination is required, which can lead to faster processing times for less complex tasks [T20-SYN-A].\n\nHowever, relying solely on a single agent can have limitations:\n\n- **Scalability Issues**: As volume increases, a single agent may struggle to manage multiple complex queries, leading to delayed responses.\n- **Narrower Expertise**: A single agent may lack the diverse knowledge necessary to handle varied customer inquiries effectively [auto_gem, gaia].\n\n### Multi-Agent Workflows\nMulti-agent systems involve several specialized agents that collaborate, each potentially focusing on different aspects of customer support:\n\n1. **Diverse Capabilities**: Each agent can be tailored to handle specific types of queries or tasks, potentially offering more robust support [metagpt, auto_gem].\n2. **Improved Complexity Handling**: Multi-agent systems excel in managing complex inquiries where multiple pieces of evidence or reasoning are needed, which can help provide more comprehensive support [T20-SYN-A].\n3. **Reduction in Errors**: By employing specialized agents, the risks associated with errors and oversights may be minimized as verification steps can be carried out by different agents [T20-SYN-A].\n\nHowever, multi-agent systems also come with challenges:\n\n- **Increased Coordination Needs**: More agents require careful management to ensure that information is shared accurately, which can lead to higher overhead and potentially slower responses to straightforward queries [T20-SYN-A].\n- **Risk of Communication Failures**: The interaction among agents can lead to duplication of efforts and inconsistencies if not managed properly [T20-SYN-A].\n\n### Conclusion\nIn summary, the choice between single-agent and multi-agent workflows for customer support should consider the nature of the inquiries, the expected volume of interactions, and the required expertise. While single-agent systems may be sufficient for simpler tasks, multi-agent systems can offer better handling of complex queries at the cost of increased coordination and potential overhead. However, proper implementation of multi-agent workflows can mitigate some of these challenges and enhance overall performance [T20-SYN-A]. \n\n### Counterargument and Limitations\nWhile multi-agent systems can theoretically enhance performance in complex scenarios, their effectiveness is contingent on the task structure, interaction design, and system configuration. The coordination burden may result in slower responses for simpler tasks, potentially undermining the benefits they could offer in a straightforward inquiry context [T20-SYN-A]. Furthermore, evidence supporting the superiority of multi-agent approaches is situation-dependent and should not be generalized without further empirical validation [gaia].",
+  "agent_results": [
+    {
+      "agent": "baseline",
+      "content": "When comparing single-agent and multi-agent workflows for customer support, several factors must be considered, including efficiency, complexity, and risk management.\n\n### Single-Agent Workflows\nSingle-agent systems typically involve a single AI or agent handling all interactions and queries. This approach can simplify the customer support process:\n\n1. **Simplicity**: The interaction is straightforward—customers communicate with one agent, reducing the potential for miscommunication and confusion.\n2. **Faster Resolution for Simple Queries**: Single agents can efficiently handle straightforward inquiries and provide quick resolutions without the need for handoffs or coordination [T20-SYN-A].\n3. **Lower Overhead**: Fewer agents mean less coordination is required, which can lead to faster processing times for less complex tasks [T20-SYN-A].\n\nHowever, relying solely on a single agent can have limitations:\n\n- **Scalability Issues**: As volume increases, a single agent may struggle to manage multiple complex queries, leading to delayed responses.\n- **Narrower Expertise**: A single agent may lack the diverse knowledge necessary to handle varied customer inquiries effectively [auto_gem, gaia].\n\n### Multi-Agent Workflows\nMulti-agent systems involve several specialized agents that collaborate, each potentially focusing on different aspects of customer support:\n\n1. **Diverse Capabilities**: Each agent can be tailored to handle specific types of queries or tasks, potentially offering more robust support [metagpt, auto_gem].\n2. **Improved Complexity Handling**: Multi-agent systems excel in managing complex inquiries where multiple pieces of evidence or reasoning are needed, which can help provide more comprehensive support [T20-SYN-A].\n3. **Reduction in Errors**: By employing specialized agents, the risks associated with errors and oversights may be minimized as verification steps can be carried out by different agents [T20-SYN-A].\n\nHowever, multi-agent systems also come with challenges:\n\n- **Increased Coordination Needs**: More agents require careful management to ensure that information is shared accurately, which can lead to higher overhead and potentially slower responses to straightforward queries [T20-SYN-A].\n- **Risk of Communication Failures**: The interaction among agents can lead to duplication of efforts and inconsistencies if not managed properly [T20-SYN-A].\n\n### Conclusion\nIn summary, the choice between single-agent and multi-agent workflows for customer support should consider the nature of the inquiries, the expected volume of interactions, and the required expertise. While single-agent systems may be sufficient for simpler tasks, multi-agent systems can offer better handling of complex queries at the cost of increased coordination and potential overhead. However, proper implementation of multi-agent workflows can mitigate some of these challenges and enhance overall performance [T20-SYN-A]. \n\n### Counterargument and Limitations\nWhile multi-agent systems can theoretically enhance performance in complex scenarios, their effectiveness is contingent on the task structure, interaction design, and system configuration. The coordination burden may result in slower responses for simpler tasks, potentially undermining the benefits they could offer in a straightforward inquiry context [T20-SYN-A]. Furthermore, evidence supporting the superiority of multi-agent approaches is situation-dependent and should not be generalized without further empirical validation [gaia].",
+      "metadata": {
+        "mode": "openai",
+        "source_count": 5
+      }
+    }
+  ],
+  "trace": [
+    {
+      "name": "baseline",
+      "started_at": "2026-08-20T08:44:56.761322+00:00",
+      "attributes": {
+        "query": "Compare single-agent and multi-agent workflows for customer support",
+        "mode": "openai",
+        "source_count": 5,
+        "output_chars": 3525
+      },
+      "duration_seconds": 11.256736099952832,
+      "status": "ok"
+    }
+  ],
+  "errors": [],
+  "input_tokens": 1069,
+  "output_tokens": 646,
+  "estimated_cost_usd": null
+}

@@ -1,0 +1,256 @@
+{
+  "request": {
+    "query": "Compare single-agent and multi-agent workflows for customer support",
+    "max_sources": 5,
+    "audience": "technical learners"
+  },
+  "iteration": 4,
+  "route_history": [
+    "researcher",
+    "analyst",
+    "writer",
+    "done"
+  ],
+  "sources": [
+    {
+      "source_id": "owasp_llm",
+      "title": "OWASP Top 10 for LLMs and Gen AI Apps (2025)",
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "snippet": "OWASP’s 2025 Top 10 for LLM and generative-AI applications includes risks such as prompt injection, sensitive-information disclosure, supply-chain weaknesses, data/model poisoning, improper output handling, excessive agency, system prompt leakage, vector/embedding weaknesses, misinformation, and unbounded consumption. Agent systems often intensify these risks because model outputs can cross trust boundaries and cause actions. A top-ten list is a prioritization aid rather than a complete threat model. Concrete controls depend on the application, privileges, data, tools, and deployment architecture.",
+      "metadata": {
+        "topic": "Enterprise Multi-Agent Workflow Automation",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "owasp_llm",
+        "year": 2025,
+        "corpus_file": "20_enterprise_multi_agent_workflow_automation.json"
+      }
+    },
+    {
+      "source_id": "metagpt",
+      "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+      "url": "https://arxiv.org/abs/2308.00352",
+      "snippet": "MetaGPT framed multi-agent collaboration around standardized operating procedures and specialized roles, particularly for software development. It also explicitly discussed cascading hallucinations as a risk of naively chaining model outputs. The relevant design lesson is that structured artifacts and role-specific checks can be preferable to unconstrained conversational chains. Reported benefits on software-oriented tasks do not establish superiority for all domains, and SOPs can become rigid or expensive if task uncertainty is high.",
+      "metadata": {
+        "topic": "Single-Agent vs Multi-Agent Architectures for Complex Research Tasks",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "metagpt",
+        "year": 2023,
+        "corpus_file": "01_single_agent_vs_multi_agent_architectures_for_complex_research_tasks.json"
+      }
+    },
+    {
+      "source_id": "autogen",
+      "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+      "url": "https://arxiv.org/abs/2308.08155",
+      "snippet": "AutoGen described a framework for constructing LLM applications as conversations among customizable agents. Agents can combine language models, human input, tools, and code, and developers can define different interaction patterns. Its main relevance to multi-agent research is architectural: collaboration can be programmed as roles and message exchanges rather than as one monolithic prompt. A framework demonstration is not proof that multiple agents always outperform one agent. Performance depends on model quality, task structure, interaction policy, and how redundant conversation is controlled.",
+      "metadata": {
+        "topic": "Single-Agent vs Multi-Agent Architectures for Complex Research Tasks",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "autogen",
+        "year": 2023,
+        "corpus_file": "01_single_agent_vs_multi_agent_architectures_for_complex_research_tasks.json"
+      }
+    },
+    {
+      "source_id": "gaia",
+      "title": "GAIA: a benchmark for General AI Assistants",
+      "url": "https://arxiv.org/abs/2311.12983",
+      "snippet": "GAIA evaluates general assistants on real-world questions requiring combinations of reasoning, browsing, multimodal interpretation, and tool use. Its design emphasizes questions that are easy enough for humans but difficult for automated assistants, highlighting robustness and tool coordination rather than narrow expert knowledge alone. Performance depends strongly on the exact assistant/tool configuration and model generation. A benchmark score should not be generalized to unrelated production workflows without additional evaluation.",
+      "metadata": {
+        "topic": "Single-Agent vs Multi-Agent Architectures for Complex Research Tasks",
+        "document_class": "public_reference_summary",
+        "is_synthetic": false,
+        "citation_label": "gaia",
+        "year": 2023,
+        "corpus_file": "01_single_agent_vs_multi_agent_architectures_for_complex_research_tasks.json"
+      }
+    },
+    {
+      "source_id": "T20-SYN-A",
+      "title": "Controlled Lab Study on Enterprise Multi-Agent Workflow Automation",
+      "url": null,
+      "snippet": "Purpose and context. This is a synthetic benchmark document created for Topic 20: Enterprise Multi-Agent Workflow Automation. It is not a real publication and should never be cited as one. Its purpose is to give the research system a self-contained piece of evidence with enough methodological detail to evaluate rather than merely repeat.\n\nStudy design. 120 benchmark tasks, three random seeds, matched model family and tool access. The synthetic study defines success at the task level and also records process indicators such as evidence coverage, unsupported claims, tool calls, token consumption, elapsed time, retries, and handoff defects. Runs are grouped by task complexity so that gains on difficult cases are not averaged together with routine cases.\n\nMain finding. Reports using a structured implementation of the topic's recommended pattern improved evidence coverage by 11–18%, but median token cost increased by 22–41%. The effect is intentionally presented as conditional. The data suggest that structured agentic mechanisms can help when they produce additional independent evidence or catch defects, but the same mechanisms can add substantial coordination and inference overhead. The study therefore does not support a blanket claim that more agents or more autonomy is better.\n\nSecondary observations. Benefits were concentrated in tasks with multiple evidence types, ambiguous subquestions, or explicit verification steps. On short tasks with one clear information path, the simpler baseline often completed faster and with similar factual quality. Coordination failures included duplicated retrieval, inconsistent terminology, stale summaries, and verifier agents that accepted upstream claims without inspecting the original evidence.\n\nInterpretation guidance. Use this source as benchmark evidence, not external ground truth. It can support statements about the synthetic experiment's observations and can motivate hypotheses for real systems. It should not be generalized to all models, organizations, or environments. The most defensible synthesis compares its findings with the public-reference summaries and explains which mechanisms could plausibly produce the observed differences.\n\nLimitations. Synthetic tasks; may not transfer to live web environments or organization-specific workflows. Additional limitations include synthetic task construction, possible prompt-specific effects, and the absence of a guarantee that simulated operational failures match live deployments.",
+      "metadata": {
+        "topic": "Enterprise Multi-Agent Workflow Automation",
+        "document_class": "synthetic_experiment",
+        "is_synthetic": true,
+        "citation_label": "T20-SYN-A",
+        "year": null,
+        "corpus_file": "20_enterprise_multi_agent_workflow_automation.json"
+      }
+    }
+  ],
+  "research_notes": "1. Multi-agent systems can intensify risks such as prompt injection and sensitive-information disclosure, as they may cross trust boundaries [owasp_llm].\n\n2. Structured artifacts and role-specific checks in multi-agent workflows can be preferable to unconstrained conversational chains, particularly in software development [metagpt].\n\n3. Multi-agent frameworks allow for defining roles and message exchanges rather than relying on a single prompt, although performance depends on several factors including model quality and task structure [autogen].\n\n4. The GAIA benchmark evaluates general AI assistants on real-world questions, emphasizing robustness and tool coordination over narrow knowledge [gaia].\n\n5. In a controlled study, a structured multi-agent approach improved evidence coverage by 11–18% but increased median token cost by 22–41%. Gains were notable in complex tasks, while simpler tasks often performed just as well with fewer resources [T20-SYN-A].",
+  "analysis_notes": "### Evidence Analysis: Single-Agent vs Multi-Agent Workflows for Customer Support\n\n#### Key Claims\n1. **Multi-Agent Systems and Risks:**\n   Multi-agent systems can exacerbate risks such as prompt injection and sensitive-information disclosure, as they may lead to crossing trust boundaries ([owasp_llm]).\n   \n2. **Structured Approach in Multi-Agent Workflows:**\n   The use of structured artifacts and role-specific checks in multi-agent workflows is beneficial compared to unconstrained conversational chains, particularly in software development contexts ([metagpt]).\n\n3. **Framework Flexibility:**\n   Multi-agent frameworks allow for the delineation of roles and message exchanges, enhancing adaptability. However, their performance is contingent on factors like model quality and task structure ([autogen]).\n\n4. **Evaluation Metrics:**\n   The GAIA benchmark emphasizes evaluating general AI assistants on practical tasks, focusing on robustness and the ability to coordinate tools rather than relying solely on narrow expertise ([gaia]).\n\n5. **Performance Trade-offs:**\n   A structured multi-agent approach reportedly improves evidence coverage by 11-18% but increases token costs by 22-41%. The effectiveness is especially pronounced in complex tasks, whereas simpler tasks often do just as well with fewer resources ([T20-SYN-A]).\n\n#### Agreements\n- Both single-agent and multi-agent workflows have their merits depending on the task complexity.\n- Structured approaches help mitigate risks associated with multi-agent systems.\n- Performance should be evaluated across various dimensions, not limited to just output quality.\n\n#### Conflicts\n- There is a tension between the risks of using multi-agent systems and the structured advantages they provide. While structured approaches can enhance performance, they may still invite vulnerabilities ([owasp_llm], [metagpt]).\n- The effectiveness of multi-agent systems is not universally superior; task complexity heavily influences results ([T20-SYN-A]).\n\n#### Weak Evidence\n- The benefits of structured multi-agent approaches are mainly cited within software development, leaving ambiguity regarding their applicability in broader customer support contexts ([metagpt]).\n- The claim that multi-agent frameworks inherently outperform single agent setups lacks empirical validation across diverse tasks ([autogen]).\n\n#### Counterarguments\n- Critics may argue that the complexity introduced by multi-agent systems can lead to inefficiencies in simpler tasks, where a single agent may suffice.\n- The increase in median token cost indicates additional resource consumption, suggesting that the trade-off may not be justifiable for all scenarios ([T20-SYN-A]).\n\n#### Deployment Trade-offs\n- **Complex Tasks:** Multi-agent systems can improve handling and output, but at a significant cost in terms of resources (token consumption) and potential risks.\n- **Simple Tasks:** Single-agent workflows may be more efficient and less costly, indicating a need for strategic deployment based on task complexity and resource availability.\n- **Risk Management:** Organizations must weigh the advantages of multi-agent systems against the heightened risks and adjust their frameworks to include necessary safeguards ([owasp_llm], [metagpt]).",
+  "final_answer": "## Evidence-based answer\n- OWASP’s 2025 Top 10 for LLM and generative-AI applications includes risks such as prompt injection, sensitive-information disclosure, supply-chain weaknesses, data/model poisoning, improper output handling, excessive agency, system prompt leakage, vector/embedding weaknesses, misinformation, and unbounded consumption. [owasp_llm]\n- MetaGPT framed multi-agent collaboration around standardized operating procedures and specialized roles, particularly for software development. [metagpt]\n- AutoGen described a framework for constructing LLM applications as conversations among customizable agents. [autogen]\n- GAIA evaluates general assistants on real-world questions requiring combinations of reasoning, browsing, multimodal interpretation, and tool use. [gaia]\n- Purpose and context. [T20-SYN-A] (synthetic)\n\n## Synthesis\nThe evidence favors a conditional design decision: use specialization when the task contains genuinely separable research, analysis, and verification work. For narrow tasks, a single agent is usually the stronger baseline because it avoids handoff and coordination overhead.\n\n## Recommended evaluation\nCompare the same queries and model across architectures. Measure factual quality, citation coverage, wall-clock latency, token usage, failures, and handoff defects. Keep provenance in shared state and use bounded retries, timeouts, output validation, and a deterministic fallback.\n\n## Limitations\nThis answer is based on the supplied offline corpus and its embedded source summaries; the linked public sources were not independently reopened during offline retrieval.\n\n_Research question: Compare single-agent and multi-agent workflows for customer support_\n\n<details><summary>Analysis handoff</summary>\n\n### Evidence Analysis: Single-Agent vs Multi-Agent Workflows for Customer Support\n\n#### Key Claims\n1. **Multi-Agent Systems and Risks:**\n   Multi-agent systems can exacerbate risks such as prompt injection and sensitive-information disclosure, as they may lead to crossing trust boundaries ([owasp_llm]).\n   \n2. **Structured Approach in Multi-Agent Workflows:**\n   The use of structured artifacts and role-specific checks in multi-agent workflows is beneficial compared to unconstrained conversational chains, particularly in software development contexts ([metagpt]).\n\n3. **Framework Flexibility:**\n   Multi-agent frameworks allow for the delineation of roles and message exchanges, enhancing adaptability. However, their performance is contingent on factors like model quality and task structure ([autogen]).\n\n4. **Evaluation Metrics:**\n   The GAIA benchmark emphasizes evaluating general AI assistants on practical tasks, focusing on robustness and the ability to coordinate tools rather than relying solely on narrow expertise ([gaia]).\n\n5. **Performance Trade-offs:**\n   A structured multi-agent approach reportedly improves evidence coverage by 11-18% but increases token costs by 22-41%. The effectiveness is especially pronounced in complex tasks, whereas simpler tasks often do just as well with fewer resources ([T20-SYN-A]).\n\n#### Agreements\n- Both single-agent and multi-agent workflows have their merits depending on the task complexity.\n- Structured approaches help mitigate risks associated with multi-agent systems.\n- Performance should be evaluated across various dimensions, not limited to just output quality.\n\n#### Conflicts\n- There is a tension between the risks of using multi-agent systems and the structured advantages they provide. While structured approaches can enhance performance, they may still invite vulnerabilities ([owasp_llm], [metagpt]).\n- The effectiveness of multi-agent systems is not universally superior; task complexity heavily influences results ([T20-SYN-A]).\n\n#### Weak Evidence\n- The benefits of structured multi-agent approaches are mainly cited within software development, leaving ambiguity regarding their applicability in broader customer support contexts ([metagpt]).\n- The claim that multi-agent frameworks inherently outperform single agent setups lacks empirical validation across diverse tasks ([autogen]).\n\n#### Counterarguments\n- Critics may argue that the complexity introduced by multi-agent systems can lead to inefficiencies in simpler tasks, where a single agent may suffice.\n- The increase in median token cost indicates additional resource consumption, suggesting that the trade-off may not be justifiable for all scenarios ([T20-SYN-A]).\n\n#### Deployment Trade-offs\n- **Complex Tasks:** Multi-agent systems can improve handling and output, but at a significant cost in terms of resources (token consumption) and potential risks.\n- **Simple Tasks:** Single-agent workflows may be more efficient and less costly, indicating a need for strategic deployment based on task complexity and resource availability.\n- **Risk Management:** Organizations must weigh the advantages of multi-agent systems against the heightened risks and adjust their frameworks to include necessary safeguards ([owasp_llm], [metagpt]).\n\n</details>",
+  "agent_results": [
+    {
+      "agent": "researcher",
+      "content": "1. Multi-agent systems can intensify risks such as prompt injection and sensitive-information disclosure, as they may cross trust boundaries [owasp_llm].\n\n2. Structured artifacts and role-specific checks in multi-agent workflows can be preferable to unconstrained conversational chains, particularly in software development [metagpt].\n\n3. Multi-agent frameworks allow for defining roles and message exchanges rather than relying on a single prompt, although performance depends on several factors including model quality and task structure [autogen].\n\n4. The GAIA benchmark evaluates general AI assistants on real-world questions, emphasizing robustness and tool coordination over narrow knowledge [gaia].\n\n5. In a controlled study, a structured multi-agent approach improved evidence coverage by 11–18% but increased median token cost by 22–41%. Gains were notable in complex tasks, while simpler tasks often performed just as well with fewer resources [T20-SYN-A].",
+      "metadata": {
+        "source_count": 5,
+        "mode": "openai"
+      }
+    },
+    {
+      "agent": "analyst",
+      "content": "### Evidence Analysis: Single-Agent vs Multi-Agent Workflows for Customer Support\n\n#### Key Claims\n1. **Multi-Agent Systems and Risks:**\n   Multi-agent systems can exacerbate risks such as prompt injection and sensitive-information disclosure, as they may lead to crossing trust boundaries ([owasp_llm]).\n   \n2. **Structured Approach in Multi-Agent Workflows:**\n   The use of structured artifacts and role-specific checks in multi-agent workflows is beneficial compared to unconstrained conversational chains, particularly in software development contexts ([metagpt]).\n\n3. **Framework Flexibility:**\n   Multi-agent frameworks allow for the delineation of roles and message exchanges, enhancing adaptability. However, their performance is contingent on factors like model quality and task structure ([autogen]).\n\n4. **Evaluation Metrics:**\n   The GAIA benchmark emphasizes evaluating general AI assistants on practical tasks, focusing on robustness and the ability to coordinate tools rather than relying solely on narrow expertise ([gaia]).\n\n5. **Performance Trade-offs:**\n   A structured multi-agent approach reportedly improves evidence coverage by 11-18% but increases token costs by 22-41%. The effectiveness is especially pronounced in complex tasks, whereas simpler tasks often do just as well with fewer resources ([T20-SYN-A]).\n\n#### Agreements\n- Both single-agent and multi-agent workflows have their merits depending on the task complexity.\n- Structured approaches help mitigate risks associated with multi-agent systems.\n- Performance should be evaluated across various dimensions, not limited to just output quality.\n\n#### Conflicts\n- There is a tension between the risks of using multi-agent systems and the structured advantages they provide. While structured approaches can enhance performance, they may still invite vulnerabilities ([owasp_llm], [metagpt]).\n- The effectiveness of multi-agent systems is not universally superior; task complexity heavily influences results ([T20-SYN-A]).\n\n#### Weak Evidence\n- The benefits of structured multi-agent approaches are mainly cited within software development, leaving ambiguity regarding their applicability in broader customer support contexts ([metagpt]).\n- The claim that multi-agent frameworks inherently outperform single agent setups lacks empirical validation across diverse tasks ([autogen]).\n\n#### Counterarguments\n- Critics may argue that the complexity introduced by multi-agent systems can lead to inefficiencies in simpler tasks, where a single agent may suffice.\n- The increase in median token cost indicates additional resource consumption, suggesting that the trade-off may not be justifiable for all scenarios ([T20-SYN-A]).\n\n#### Deployment Trade-offs\n- **Complex Tasks:** Multi-agent systems can improve handling and output, but at a significant cost in terms of resources (token consumption) and potential risks.\n- **Simple Tasks:** Single-agent workflows may be more efficient and less costly, indicating a need for strategic deployment based on task complexity and resource availability.\n- **Risk Management:** Organizations must weigh the advantages of multi-agent systems against the heightened risks and adjust their frameworks to include necessary safeguards ([owasp_llm], [metagpt]).",
+      "metadata": {
+        "mode": "openai"
+      }
+    },
+    {
+      "agent": "writer",
+      "content": "## Evidence-based answer\n- OWASP’s 2025 Top 10 for LLM and generative-AI applications includes risks such as prompt injection, sensitive-information disclosure, supply-chain weaknesses, data/model poisoning, improper output handling, excessive agency, system prompt leakage, vector/embedding weaknesses, misinformation, and unbounded consumption. [owasp_llm]\n- MetaGPT framed multi-agent collaboration around standardized operating procedures and specialized roles, particularly for software development. [metagpt]\n- AutoGen described a framework for constructing LLM applications as conversations among customizable agents. [autogen]\n- GAIA evaluates general assistants on real-world questions requiring combinations of reasoning, browsing, multimodal interpretation, and tool use. [gaia]\n- Purpose and context. [T20-SYN-A] (synthetic)\n\n## Synthesis\nThe evidence favors a conditional design decision: use specialization when the task contains genuinely separable research, analysis, and verification work. For narrow tasks, a single agent is usually the stronger baseline because it avoids handoff and coordination overhead.\n\n## Recommended evaluation\nCompare the same queries and model across architectures. Measure factual quality, citation coverage, wall-clock latency, token usage, failures, and handoff defects. Keep provenance in shared state and use bounded retries, timeouts, output validation, and a deterministic fallback.\n\n## Limitations\nThis answer is based on the supplied offline corpus and its embedded source summaries; the linked public sources were not independently reopened during offline retrieval.\n\n_Research question: Compare single-agent and multi-agent workflows for customer support_\n\n<details><summary>Analysis handoff</summary>\n\n### Evidence Analysis: Single-Agent vs Multi-Agent Workflows for Customer Support\n\n#### Key Claims\n1. **Multi-Agent Systems and Risks:**\n   Multi-agent systems can exacerbate risks such as prompt injection and sensitive-information disclosure, as they may lead to crossing trust boundaries ([owasp_llm]).\n   \n2. **Structured Approach in Multi-Agent Workflows:**\n   The use of structured artifacts and role-specific checks in multi-agent workflows is beneficial compared to unconstrained conversational chains, particularly in software development contexts ([metagpt]).\n\n3. **Framework Flexibility:**\n   Multi-agent frameworks allow for the delineation of roles and message exchanges, enhancing adaptability. However, their performance is contingent on factors like model quality and task structure ([autogen]).\n\n4. **Evaluation Metrics:**\n   The GAIA benchmark emphasizes evaluating general AI assistants on practical tasks, focusing on robustness and the ability to coordinate tools rather than relying solely on narrow expertise ([gaia]).\n\n5. **Performance Trade-offs:**\n   A structured multi-agent approach reportedly improves evidence coverage by 11-18% but increases token costs by 22-41%. The effectiveness is especially pronounced in complex tasks, whereas simpler tasks often do just as well with fewer resources ([T20-SYN-A]).\n\n#### Agreements\n- Both single-agent and multi-agent workflows have their merits depending on the task complexity.\n- Structured approaches help mitigate risks associated with multi-agent systems.\n- Performance should be evaluated across various dimensions, not limited to just output quality.\n\n#### Conflicts\n- There is a tension between the risks of using multi-agent systems and the structured advantages they provide. While structured approaches can enhance performance, they may still invite vulnerabilities ([owasp_llm], [metagpt]).\n- The effectiveness of multi-agent systems is not universally superior; task complexity heavily influences results ([T20-SYN-A]).\n\n#### Weak Evidence\n- The benefits of structured multi-agent approaches are mainly cited within software development, leaving ambiguity regarding their applicability in broader customer support contexts ([metagpt]).\n- The claim that multi-agent frameworks inherently outperform single agent setups lacks empirical validation across diverse tasks ([autogen]).\n\n#### Counterarguments\n- Critics may argue that the complexity introduced by multi-agent systems can lead to inefficiencies in simpler tasks, where a single agent may suffice.\n- The increase in median token cost indicates additional resource consumption, suggesting that the trade-off may not be justifiable for all scenarios ([T20-SYN-A]).\n\n#### Deployment Trade-offs\n- **Complex Tasks:** Multi-agent systems can improve handling and output, but at a significant cost in terms of resources (token consumption) and potential risks.\n- **Simple Tasks:** Single-agent workflows may be more efficient and less costly, indicating a need for strategic deployment based on task complexity and resource availability.\n- **Risk Management:** Organizations must weigh the advantages of multi-agent systems against the heightened risks and adjust their frameworks to include necessary safeguards ([owasp_llm], [metagpt]).\n\n</details>",
+      "metadata": {
+        "mode": "offline-fallback"
+      }
+    },
+    {
+      "agent": "critic",
+      "content": "Citation coverage=100%; invalid IDs=none",
+      "metadata": {
+        "citation_coverage": 1.0,
+        "invalid_ids": []
+      }
+    }
+  ],
+  "trace": [
+    {
+      "name": "route",
+      "payload": {
+        "next": "researcher",
+        "iteration": 1,
+        "errors": 0
+      }
+    },
+    {
+      "name": "agent.supervisor",
+      "started_at": "2026-08-20T08:45:08.026408+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 0
+      },
+      "duration_seconds": 7.899943739175797e-6,
+      "status": "ok"
+    },
+    {
+      "name": "agent.researcher",
+      "started_at": "2026-08-20T08:45:08.026408+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 1
+      },
+      "duration_seconds": 2.8966233000392094,
+      "status": "ok"
+    },
+    {
+      "name": "route",
+      "payload": {
+        "next": "analyst",
+        "iteration": 2,
+        "errors": 0
+      }
+    },
+    {
+      "name": "agent.supervisor",
+      "started_at": "2026-08-20T08:45:10.924583+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 1
+      },
+      "duration_seconds": 8.00006091594696e-6,
+      "status": "ok"
+    },
+    {
+      "name": "agent.analyst",
+      "started_at": "2026-08-20T08:45:10.925576+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 2
+      },
+      "duration_seconds": 9.37712720001582,
+      "status": "ok"
+    },
+    {
+      "name": "route",
+      "payload": {
+        "next": "writer",
+        "iteration": 3,
+        "errors": 0
+      }
+    },
+    {
+      "name": "agent.supervisor",
+      "started_at": "2026-08-20T08:45:20.303941+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 2
+      },
+      "duration_seconds": 0.00001179997343569994,
+      "status": "ok"
+    },
+    {
+      "name": "agent.writer",
+      "started_at": "2026-08-20T08:45:20.304947+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 3
+      },
+      "duration_seconds": 5.531787000014447,
+      "status": "ok"
+    },
+    {
+      "name": "route",
+      "payload": {
+        "next": "done",
+        "iteration": 4,
+        "errors": 1
+      }
+    },
+    {
+      "name": "agent.supervisor",
+      "started_at": "2026-08-20T08:45:25.837948+00:00",
+      "attributes": {
+        "attempt": 1,
+        "iteration": 3
+      },
+      "duration_seconds": 8.899951353669167e-6,
+      "status": "ok"
+    },
+    {
+      "name": "citation_audit",
+      "payload": {
+        "coverage": 1.0,
+        "invalid_ids": []
+      }
+    },
+    {
+      "name": "agent.critic",
+      "started_at": "2026-08-20T08:45:25.839953+00:00",
+      "attributes": {
+        "iteration": 4
+      },
+      "duration_seconds": 0.000039899954572319984,
+      "status": "ok"
+    },
+    {
+      "name": "workflow_complete",
+      "payload": {
+        "latency_seconds": 17.822414600057527,
+        "iterations": 4,
+        "input_tokens": 2999,
+        "output_tokens": 1272
+      }
+    }
+  ],
+  "errors": [
+    "writer online fallback: writer citation validation failed: none valid"
+  ],
+  "input_tokens": 2999,
+  "output_tokens": 1272,
+  "estimated_cost_usd": null
+}
