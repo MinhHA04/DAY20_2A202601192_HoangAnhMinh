@@ -22,7 +22,8 @@ File gợi ý:
 - `src/multi_agent_research_lab/cli.py`
 - `src/multi_agent_research_lab/services/llm_client.py`
 
-TODO(student): thay baseline placeholder bằng một call LLM thật.
+Đã triển khai: baseline dùng một OpenAI Responses API call để phân tích và viết từ cùng source
+ledger. Khi chạy `--offline` hoặc provider lỗi, baseline dùng deterministic fallback và ghi mode.
 
 ## Milestone 2: Supervisor
 
@@ -31,7 +32,8 @@ File gợi ý:
 - `src/multi_agent_research_lab/agents/supervisor.py`
 - `src/multi_agent_research_lab/graph/workflow.py`
 
-TODO(student): implement routing policy.
+Đã triển khai policy deterministic theo artefact còn thiếu, kèm max iterations và graph recursion
+limit. Quyết định route được ghi vào `route_history` và trace.
 
 Gợi ý câu hỏi thiết kế:
 
@@ -49,7 +51,8 @@ File gợi ý:
 - `src/multi_agent_research_lab/agents/analyst.py`
 - `src/multi_agent_research_lab/agents/writer.py`
 
-TODO(student): implement từng worker.
+Đã triển khai Researcher, Analyst, Writer và bonus Critic. Mỗi worker validate input, giữ citation
+ID và ghi một `AgentResult`; source content luôn được coi là untrusted data.
 
 ## Milestone 4: Trace và benchmark
 
@@ -68,6 +71,14 @@ Benchmark tối thiểu:
 | Quality | rubric 0-10 do peer review |
 | Citation coverage | số claims có source / tổng claims chính |
 | Failure rate | số query fail / tổng query |
+
+Chạy toàn bộ benchmark và xuất báo cáo/trace:
+
+```bash
+python -m multi_agent_research_lab.cli benchmark
+# deterministic, không gọi provider:
+python -m multi_agent_research_lab.cli benchmark --offline
+```
 
 ## Troubleshooting
 
@@ -115,3 +126,7 @@ Mỗi nhóm trả lời 2 câu:
 
 1. Case nào nên dùng multi-agent? Vì sao?
 2. Case nào không nên dùng multi-agent? Vì sao?
+
+Trả lời: multi-agent phù hợp khi task phân rã thành các phần cần chuyên môn hoặc kiểm chứng độc
+lập và phần tăng chất lượng đo được lớn hơn overhead. Không nên dùng cho task hẹp, ít tool/nguồn,
+độ trễ thấp hoặc khi một deterministic workflow/single agent đã đạt acceptance criteria.
